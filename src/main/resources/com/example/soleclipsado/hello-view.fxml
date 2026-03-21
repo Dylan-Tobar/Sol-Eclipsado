@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.soleclipsado.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<VBox alignment="CENTER" spacing="20"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.soleclipsado.Controllers.HelloController"
+      style="-fx-background-color: #1a1a2e; -fx-padding: 40;">
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <!-- Logo del juego -->
+    <Label text="🌑 El Sol Eclipsado"
+           style="-fx-text-fill: #f5a623; -fx-font-size: 32; -fx-font-weight: bold;"/>
+
+    <Label text="Ingresa la palabra secreta para comenzar"
+           style="-fx-text-fill: white; -fx-font-size: 14;"/>
+
+    <!-- Campo de texto -->
+    <TextField fx:id="txtSecretWord"
+               promptText="Palabra secreta (6-12 letras)"
+               maxWidth="300"
+               style="-fx-font-size: 16; -fx-padding: 10;"/>
+
+    <!-- Botón comenzar -->
+    <Button fx:id="btnStart"
+            text="Comenzar"
+            onAction="#onStartClick"
+            style="-fx-background-color: #f5a623; -fx-text-fill: white;
+                   -fx-font-size: 16; -fx-font-weight: bold;
+                   -fx-padding: 10 30; -fx-cursor: hand;"/>
+
 </VBox>
