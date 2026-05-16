@@ -7,6 +7,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Class responsible for displaying the home screen
+ * @author Dylan-Tobar, Ricardo-Hallado
+ * @version 1.0
+ *
+ */
+
 public class WelcomeView extends Stage {
 
     public WelcomeView() throws IOException {

@@ -8,6 +8,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Class responsible for displaying the game screen
+ * @author Dylan-Tobar, Ricardo-Hallado
+ * @version 1.0
+ *
+ */
+
 public class GameView extends Stage {
 
     private GameController controller;

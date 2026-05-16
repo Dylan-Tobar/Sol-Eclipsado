@@ -8,6 +8,13 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
+/**
+ * Class responsible for the controls on the home screen
+ * @author Dylan-Tobar, Ricardo-Hallado
+ * @version 1.0
+ *
+ */
+
 public class WelcomeController {
     @FXML
     private TextField secretWordTextField;

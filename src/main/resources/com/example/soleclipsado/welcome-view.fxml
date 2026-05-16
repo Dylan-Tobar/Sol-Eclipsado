@@ -6,14 +6,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soleclipsado.Controllers.WelcomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="457.0" style="-fx-background-color: #1a1a2e; -fx-background-radius: 16; -fx-border-color: #FFD700; -fx-border-width: 5; -fx-border-radius: 10; -fx-padding: 60;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soleclipsado.Controllers.WelcomeController">
    <children>
-      <Button fx:id="buttonPlay" layoutX="252.0" layoutY="200.0" mnemonicParsing="false" onAction="#onHandleButtonPlay" text="Empezar Juego" />
-      <Label contentDisplay="CENTER" layoutX="196.0" layoutY="81.0" text="Sol Eclipsado" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+      <Button fx:id="buttonPlay" defaultButton="true" layoutX="160.0" layoutY="192.0" mnemonicParsing="false" onAction="#onHandleButtonPlay" prefHeight="53.0" prefWidth="137.0" style="-fx-background-color: #1a1a2e; -fx-border-color: dropshadow(gaussian, #ffcc00, 6, 0.4, 0, 0); -fx-border-width: 1; -fx-effect: dropshadow(gaussian, #ffcc00, 6, 0.4, 0, 0);" text="INICIAR" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
          <font>
-            <Font size="36.0" />
+            <Font name="Verdana Bold" size="22.0" />
+         </font>
+      </Button>
+      <Label contentDisplay="CENTER" ellipsisString="" layoutX="48.0" layoutY="14.0" prefHeight="88.0" prefWidth="395.0" style="-fx-text-fill: #FFCC00; -fx-effect: dropshadow(gaussian, #ffcc00, 6, 0.2, 0, 0);" text="☀ Sol Eclipsado" textFill="#f7ec07" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="Verdana Bold" size="38.0" />
          </font>
       </Label>
-      <TextField fx:id="secretWordTextField" layoutX="226.0" layoutY="163.0" />
+      <TextField fx:id="secretWordTextField" layoutX="127.0" layoutY="117.0" prefHeight="53.0" prefWidth="204.0" promptText="Palabra secreta (6 a 12 letras)" style="-fx-background-color: #FFFFFF;">
+         <font>
+            <Font name="Verdana Bold Italic" size="11.0" />
+         </font>
+      </TextField>
+      <Label layoutX="103.0" layoutY="95.0" text="Ingresa la palabra secreta y disfruta!" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

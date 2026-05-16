@@ -1,12 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soleclipsado.Controllers.GameController">
+<AnchorPane
+        maxHeight="-Infinity" maxWidth="-Infinity"
+        minHeight="-Infinity" minWidth="-Infinity"
+        prefHeight="520.0" prefWidth="620.0"
+        style="-fx-background-color: #1a1a2e;"
+        xmlns="http://javafx.com/javafx/25"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.example.soleclipsado.Controllers.GameController">
+
    <children>
-      <HBox fx:id="lettersContainer" prefHeight="100.0" prefWidth="200.0" spacing="5.0" />
-      <Button fx:id="buttonHelp" mnemonicParsing="false" onAction="#onHandleButtonHelp" text="AYUDA" />
+
+      <!-- ══════════════════════════════════════════ -->
+      <!--  TÍTULO                                    -->
+      <!-- ══════════════════════════════════════════ -->
+      <Label
+              layoutX="0.0" layoutY="18.0"
+              prefWidth="620.0"
+              alignment="CENTER"
+              text="☀ Sol Eclipsado"
+              textFill="#FFCC00"
+              style="-fx-effect: dropshadow(gaussian, #ffcc00, 8, 0.3, 0, 0);">
+         <font>
+            <Font name="Verdana Bold" size="28.0" />
+         </font>
+      </Label>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!--  SOL ECLIPSÁNDOSE  (HU-4)                 -->
+      <!--  Canvas JavaFX: un StackPane con círculos -->
+      <!--  El GameController actualiza el clip      -->
+      <!-- ══════════════════════════════════════════ -->
+      <VBox
+              layoutX="200.0" layoutY="70.0"
+              prefWidth="220.0"
+              alignment="CENTER"
+              spacing="4.0">
+
+         <!-- Contenedor del sol + luna (eclipse) -->
+         <StackPane fx:id="eclipseContainer"
+                    prefWidth="180.0" prefHeight="180.0">
+
+            <!-- SOL: círculo amarillo con rayos simulados via efecto -->
+            <Circle fx:id="sunCircle"
+                    radius="80.0"
+                    fill="#FFD700"
+                    style="-fx-effect: dropshadow(gaussian, #FF8C00, 30, 0.6, 0, 0);" />
+
+            <!-- LUNA / SOMBRA DEL ECLIPSE: empieza fuera a la derecha -->
+            <!-- El controller mueve su translateX de +160 a 0          -->
+            <Circle fx:id="moonCircle"
+                    radius="80.0"
+                    fill="#1a1a2e"
+                    style="-fx-effect: dropshadow(gaussian, #000000, 10, 0.5, 0, 0);"
+                    translateX="160.0" />
+         </StackPane>
+
+         <!-- Etiqueta de errores restantes -->
+         <Label fx:id="errorsLabel"
+                text="Errores: 0 / 5"
+                textFill="#FFAA00"
+                alignment="CENTER">
+            <font>
+               <Font name="Verdana Bold" size="13.0" />
+            </font>
+         </Label>
+      </VBox>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!--  INSTRUCCIÓN                              -->
+      <!-- ══════════════════════════════════════════ -->
+      <Label
+              layoutX="0.0" layoutY="270.0"
+              prefWidth="620.0"
+              alignment="CENTER"
+              text="Adivina la palabra secreta letra por letra"
+              textFill="#AAAACC">
+         <font>
+            <Font name="Verdana" size="11.0" />
+         </font>
+      </Label>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!--  CAMPOS DE LETRAS  (HU-2)                 -->
+      <!-- ══════════════════════════════════════════ -->
+      <HBox
+              fx:id="lettersContainer"
+              layoutX="10.0" layoutY="295.0"
+              prefWidth="600.0"
+              alignment="CENTER"
+              spacing="6.0" />
+
+      <!-- ══════════════════════════════════════════ -->
+      <!--  BOTÓN AYUDA  (HU-3)                      -->
+      <!-- ══════════════════════════════════════════ -->
+      <VBox
+              layoutX="200.0" layoutY="390.0"
+              prefWidth="220.0"
+              alignment="CENTER"
+              spacing="6.0">
+
+         <Button
+                 fx:id="buttonHelp"
+                 mnemonicParsing="false"
+                 onAction="#onHandleButtonHelp"
+                 prefHeight="46.0" prefWidth="200.0"
+                 text="💡 AYUDA"
+                 textFill="WHITE"
+                 style="-fx-background-color: #2a2a4e;
+                       -fx-border-color: #FFCC00;
+                       -fx-border-width: 2;
+                       -fx-border-radius: 8;
+                       -fx-background-radius: 8;
+                       -fx-effect: dropshadow(gaussian, #ffcc00, 6, 0.3, 0, 0);
+                       -fx-cursor: hand;">
+            <font>
+               <Font name="Verdana Bold" size="15.0" />
+            </font>
+         </Button>
+
+         <!-- Contador de ayudas restantes -->
+         <Label fx:id="helpCounterLabel"
+                text="Ayudas disponibles: 3"
+                textFill="#FFCC00"
+                alignment="CENTER">
+            <font>
+               <Font name="Verdana" size="11.0" />
+            </font>
+         </Label>
+      </VBox>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!--  MENSAJE DE ESTADO (ganó / perdió)        -->
+      <!-- ══════════════════════════════════════════ -->
+      <Label
+              fx:id="statusLabel"
+              layoutX="0.0" layoutY="468.0"
+              prefWidth="620.0"
+              alignment="CENTER"
+              text=""
+              textFill="#00FF99"
+              style="-fx-effect: dropshadow(gaussian, #00ff99, 6, 0.3, 0, 0);">
+         <font>
+            <Font name="Verdana Bold" size="13.0" />
+         </font>
+      </Label>
+
    </children>
-</VBox>
+</AnchorPane>

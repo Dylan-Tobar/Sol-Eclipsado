@@ -2,6 +2,13 @@ package com.example.soleclipsado.Models;
 
 import javafx.scene.control.Alert;
 
+/**
+ * Class responsible for displaying an alert box
+ * @author Dylan-Tobar, Ricardo-Hallado
+ * @version 1.0
+ *
+ */
+
 public class AlertBox implements IAlertBox{
     /**
      * @param title
